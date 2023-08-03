@@ -5,8 +5,8 @@ from django.core.mail import EmailMessage, get_connection
 def index(request):
 
     subject = "Hello from Django SMTP"
-    recipient_list = ["carlosderich@gmail.com"]
-    from_email = "r@recomendo.io"
+    recipient_list = ["delivered@resend.dev"]
+    from_email = "onboarding@resend.dev"
     message = "<strong>it works!</strong>"
 
     with get_connection(
