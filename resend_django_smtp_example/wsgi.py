@@ -1,5 +1,5 @@
 """
-WSGI config for resend_django_example project.
+WSGI config for resend_django_smtp_example project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'resend_django_example.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'resend_django_smtp_example.settings')
 
 application = get_wsgi_application()
