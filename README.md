@@ -1,6 +1,6 @@
-# Resend with Example
+# Resend with Django and SMTP
 
-This example shows how to use Resend with [Example](https://example.com).
+This example shows how to use Resend SMTP server with Django.
 
 ## Prerequisites
 
