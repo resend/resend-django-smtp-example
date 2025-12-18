@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,6 +126,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-RESEND_SMTP_PORT = 587
-RESEND_SMTP_USERNAME = 'resend'
-RESEND_SMTP_HOST = 'smtp.resend.com'
+EMAIL_HOST = 'smtp.resend.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'resend'
+EMAIL_HOST_PASSWORD = os.environ.get("RESEND_API_KEY")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'onboarding@resend.dev'
