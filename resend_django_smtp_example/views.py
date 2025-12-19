@@ -1,26 +1,12 @@
-import os
 from django.http import JsonResponse
-from django.core.mail import EmailMessage, get_connection
-from django.conf import settings
+from django.core.mail import send_mail
+
 
 def index(request):
-
-    subject = "Hello from Django SMTP"
-    recipient_list = ["delivered@resend.dev"]
-    from_email = "onboarding@resend.dev"
-    message = "<strong>it works!</strong>"
-
-    with get_connection(
-        host=settings.RESEND_SMTP_HOST,
-        port=settings.RESEND_SMTP_PORT,
-        username=settings.RESEND_SMTP_USERNAME,
-        password=os.environ["RESEND_API_KEY"],
-        use_tls=True,
-        ) as connection:
-            r = EmailMessage(
-                  subject=subject,
-                  body=message,
-                  to=recipient_list,
-                  from_email=from_email,
-                  connection=connection).send()
+    send_mail(
+        subject="Hello from Resend",
+        message="it works!",
+        from_email=None,  # Uses DEFAULT_FROM_EMAIL from settings
+        recipient_list=["delivered@resend.dev"],
+    )
     return JsonResponse({"status": "ok"})
